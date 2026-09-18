@@ -1,0 +1,32 @@
+<h1>課題一覧</h1>
+
+<p><%= link_to "課題を登録する", new_task_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>課題名</th>
+      <th>科目名</th>
+      <th>提出期限</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.subject %></td>
+        <td><%= task.deadline %></td>
+        <td>
+          <%= link_to "詳細", task_path(task) %>
+          <%= link_to "編集", edit_task_path(task) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @tasks.empty? %>
+  <p>まだ課題が登録されていません。</p>
+<% end %>

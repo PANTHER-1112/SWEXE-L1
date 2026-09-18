@@ -1,0 +1,15 @@
+<h1>課題の詳細</h1>
+
+<p><strong>課題名：</strong><%= @task.title %></p>
+<p><strong>科目名：</strong><%= @task.subject %></p>
+<p><strong>提出期限：</strong><%= @task.deadline %></p>
+
+<p><strong>メモ：</strong></p>
+<%= simple_format(@task.memo) %>
+
+<p>
+  <%= link_to "編集する", edit_task_path(@task) %>
+  <%= link_to "一覧に戻る", tasks_path %>
+</p>
+
+<%= button_to "削除する", task_path(@task), method: :delete %>
