@@ -1,15 +1,40 @@
 <h1>課題の詳細</h1>
 
-<p><strong>課題名：</strong><%= @task.title %></p>
-<p><strong>科目名：</strong><%= @task.subject %></p>
-<p><strong>提出期限：</strong><%= @task.deadline %></p>
+<section class="card">
+  <dl class="task-detail">
+    <dt>課題名</dt>
+    <dd><%= @task.title %></dd>
 
-<p><strong>メモ：</strong></p>
-<%= simple_format(@task.memo) %>
+    <dt>科目名</dt>
+    <dd><%= @task.subject %></dd>
 
-<p>
-  <%= link_to "編集する", edit_task_path(@task) %>
-  <%= link_to "一覧に戻る", tasks_path %>
-</p>
+    <dt>提出期限</dt>
+    <dd><%= @task.deadline&.strftime("%Y/%m/%d") %></dd>
 
-<%= button_to "削除する", task_path(@task), method: :delete %>
+    <dt>メモ</dt>
+    <dd>
+      <% if @task.memo.present? %>
+        <%= simple_format(@task.memo) %>
+      <% else %>
+        メモはありません。
+      <% end %>
+    </dd>
+  </dl>
+
+  <div class="actions">
+    <%= link_to "編集する", edit_task_path(@task), class: "button" %>
+    <%= link_to "一覧に戻る", tasks_path, class: "button secondary" %>
+  </div>
+
+  <div class="danger-zone">
+    <%= button_to "課題を削除する",
+                  task_path(@task),
+                  method: :delete,
+                  class: "button danger",
+                  form: {
+                    data: {
+                      turbo_confirm: "この課題を削除しますか？元に戻せません。"
+                    }
+                  } %>
+  </div>
+</section>

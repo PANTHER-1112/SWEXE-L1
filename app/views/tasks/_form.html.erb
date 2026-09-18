@@ -1,34 +1,57 @@
-<%= form_with model: task, local: true do |form| %>
+<%= form_with model: task, local: true, class: "task-form" do |form| %>
   <% if task.errors.any? %>
-    <div>
-      <p>入力内容を確認してください。</p>
+    <div class="error-box" role="alert">
+      <strong>次の項目を修正してください。</strong>
+
       <ul>
-        <% task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% task.errors.each do |error| %>
+          <li><%= error.message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :title, "課題名" %><br>
-    <%= form.text_field :title %>
-  </p>
+  <p class="help-text">「必須」の項目を入力して保存してください。</p>
 
-  <p>
-    <%= form.label :subject, "科目名" %><br>
-    <%= form.text_field :subject %>
-  </p>
+  <div class="form-group">
+    <%= form.label :title do %>
+      課題名 <span class="required">必須</span>
+    <% end %>
 
-  <p>
-    <%= form.label :deadline, "提出期限" %><br>
+    <%= form.text_field :title, placeholder: "例：RailsのCRUDアプリ作成" %>
+    <p class="help-text">100文字以内</p>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :subject do %>
+      科目名 <span class="required">必須</span>
+    <% end %>
+
+    <%= form.text_field :subject, placeholder: "例：Webプログラミング" %>
+    <p class="help-text">50文字以内</p>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :deadline do %>
+      提出期限 <span class="required">必須</span>
+    <% end %>
+
     <%= form.date_field :deadline %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :memo, "メモ" %><br>
-    <%= form.text_area :memo, rows: 5 %>
-  </p>
+  <div class="form-group">
+    <%= form.label :memo, "メモ（任意）" %>
 
-  <p><%= form.submit "保存する" %></p>
+    <%= form.text_area :memo,
+                       rows: 5,
+                       placeholder: "提出方法や注意点など" %>
+    <p class="help-text">1000文字以内</p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit(task.persisted? ? "更新する" : "登録する",
+                    class: "button") %>
+
+    <%= link_to "一覧に戻る", tasks_path, class: "button secondary" %>
+  </div>
 <% end %>

@@ -24,6 +24,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="site-header">
+      <%= link_to "課題管理アプリ", tasks_path, class: "site-title" %>
+    </header>
+
+    <main class="container">
+      <% flash.each do |type, message| %>
+        <div class="flash <%= type %>"
+            role="<%= type.to_s == 'alert' ? 'alert' : 'status' %>">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

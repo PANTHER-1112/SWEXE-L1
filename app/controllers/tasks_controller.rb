@@ -9,15 +9,18 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-    def create
+  def create
     @task = Task.new(task_params)
 
     if @task.save
-        redirect_to task_path(@task), status: :see_other
+      redirect_to task_path(@task),
+                  notice: "課題を登録しました。",
+                  status: :see_other
     else
-        render :new, status: 422
+      flash.now[:alert] = "登録できませんでした。入力内容を確認してください。"
+      render :new, status: 422
     end
-    end
+  end
 
   def show
   end
@@ -27,15 +30,25 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task), status: :see_other
+      redirect_to task_path(@task),
+                  notice: "課題を更新しました。",
+                  status: :see_other
     else
+      flash.now[:alert] = "更新できませんでした。入力内容を確認してください。"
       render :edit, status: 422
     end
   end
 
   def destroy
-    @task.destroy!
-    redirect_to tasks_path, status: :see_other
+    if @task.destroy
+      redirect_to tasks_path,
+                  notice: "課題を削除しました。",
+                  status: :see_other
+    else
+      redirect_to task_path(@task),
+                  alert: "課題を削除できませんでした。",
+                  status: :see_other
+    end
   end
 
   private

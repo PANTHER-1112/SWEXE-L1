@@ -1,10 +1,171 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: sans-serif;
+}
+
+.site-header {
+  background-color: #dce9f5;
+  padding: 15px;
+  border-bottom: 1px solid #aaa;
+}
+
+.site-title {
+  color: #333;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 15px;
+}
+
+.help-text {
+  color: #555;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid #999;
+  font: inherit;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.required {
+  color: #b00000;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #28649b;
+  color: white;
+  padding: 8px 14px;
+  border: 1px solid #245784;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.secondary {
+  background-color: #eee;
+  color: #333;
+  border-color: #aaa;
+}
+
+.danger {
+  background-color: #a83232;
+  border-color: #a83232;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.flash,
+.error-box {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+}
+
+.notice {
+  background-color: #e5f3e5;
+  color: #245524;
+}
+
+.alert,
+.error-box {
+  background-color: #ffeaea;
+  color: #9b2020;
+}
+
+.field_with_errors input,
+.field_with_errors textarea {
+  border-color: #b00000;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.overdue {
+  color: #b00000;
+}
+
+.today {
+  color: #805000;
+}
+
+.task-detail dt {
+  font-weight: bold;
+}
+
+.task-detail dd {
+  margin: 5px 0 20px;
+  overflow-wrap: anywhere;
+}
+
+.danger-zone {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
+}
