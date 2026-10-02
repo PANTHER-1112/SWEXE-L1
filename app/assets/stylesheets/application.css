@@ -169,3 +169,150 @@ th {
   padding-top: 15px;
   border-top: 1px solid #ccc;
 }
+
+/* ヘッダー */
+.site-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.site-title {
+  font-weight: bold;
+}
+
+.site-description {
+  margin: 8px 0 0;
+  color: #425a70;
+  font-size: 14px;
+}
+
+/* サイドバーと本文の2カラム */
+.app-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.main-content h1 {
+  margin-top: 0;
+}
+
+/* サイドバー */
+.sidebar {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.sidebar-heading {
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+
+.sidebar-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-menu li + li {
+  margin-top: 10px;
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 10px 12px;
+  color: #204f78;
+  background-color: #edf4fa;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.sidebar-menu a:hover {
+  background-color: #dce9f5;
+}
+
+.sidebar-guide {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.sidebar-guide p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 一覧の見出しと登録ボタン */
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-heading h1 {
+  margin-bottom: 8px;
+}
+
+.page-heading .help-text {
+  margin: 0;
+}
+
+.card {
+  border-radius: 8px;
+}
+
+td {
+  overflow-wrap: anywhere;
+}
+
+.empty-message {
+  line-height: 1.8;
+}
+
+/* キーボード操作時の選択位置 */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #805000;
+  outline-offset: 3px;
+}
+
+/* フッター */
+.site-footer {
+  padding: 20px 16px;
+  border-top: 1px solid #ccd7e0;
+  background-color: #eaf0f5;
+  color: #425a70;
+  text-align: center;
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+/* スマートフォンでは縦に並べる */
+@media (max-width: 700px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}

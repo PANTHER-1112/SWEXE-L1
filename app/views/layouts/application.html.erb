@@ -24,19 +24,23 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <%= link_to "課題管理アプリ", tasks_path, class: "site-title" %>
-    </header>
+    <%= render "application/header" %>
 
-    <main class="container">
-      <% flash.each do |type, message| %>
-        <div class="flash <%= type %>"
-            role="<%= type.to_s == 'alert' ? 'alert' : 'status' %>">
-          <%= message %>
-        </div>
-      <% end %>
+    <div class="app-layout">
+      <%= render "application/sidebar" %>
 
-      <%= yield %>
-    </main>
+      <main class="main-content">
+        <% flash.each do |type, message| %>
+          <div class="flash <%= type %>"
+               role="<%= type.to_s == 'alert' ? 'alert' : 'status' %>">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </main>
+    </div>
+
+    <%= render "application/footer" %>
   </body>
 </html>

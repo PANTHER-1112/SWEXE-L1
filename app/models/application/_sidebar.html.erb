@@ -1,0 +1,21 @@
+<aside class="sidebar">
+  <nav aria-label="メインメニュー">
+    <h2 class="sidebar-heading">メニュー</h2>
+
+    <ul class="sidebar-menu">
+      <li>
+        <%= link_to "課題一覧", tasks_path %>
+      </li>
+      <li>
+        <%= link_to "課題を登録", new_task_path %>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="sidebar-guide">
+    <h2 class="sidebar-heading">使い方</h2>
+    <p>課題名・科目名・提出期限を登録しましょう。</p>
+    <p>課題名を押すと詳細を確認できます。</p>
+    <p>提出方法や注意点は、メモに記録できます。</p>
+  </section>
+</aside>
